@@ -126,6 +126,8 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocketClient.cs" />
+    <Compile Include="SocketServer.cs" />
     <Compile Include="UserList.xaml.cs">
       <DependentUpon>UserList.xaml</DependentUpon>
     </Compile>
