@@ -23,6 +23,7 @@
             </ListView>
 
             <Button x:Name="AddUserButton" Content="+" FontSize="36" Width="60" Click="AddUserButton_Click" HorizontalAlignment="Center"/>
+            
         </StackPanel>
     </Grid>
 </Page>
