@@ -15,7 +15,7 @@ namespace ThirdPartyLoginServer
 
         private Socket ServerSocket { get; set; }
 
-        //private EndPoint LoginEndPoint { get; set; }
+        private List<Socket> Sockets { get; set; } = new List<Socket>();
 
         public SocketServer()
         {
@@ -53,6 +53,7 @@ namespace ThirdPartyLoginServer
             {
                 //等待连接并且创建一个负责通讯的socket
                 var send = serverSocket.Accept();
+                Sockets.Add(send);
                 //获取链接的IP地址
                 var sendIpoint = send.RemoteEndPoint.ToString();
                 Console.WriteLine($"{sendIpoint}Connection");
@@ -84,14 +85,9 @@ namespace ThirdPartyLoginServer
                 
                 ReceiveMessageEvent?.Invoke(this, str);
 
-                //if (string.Compare(str, "loginclient", true) == 0)
-                //{
-                //    LoginEndPoint = send.RemoteEndPoint;
-                //}
-                //else if (LoginEndPoint != null && LoginEndPoint != send.RemoteEndPoint)
-                //{
+                
                     SendMessage(send, str);
-                //}
+                
             }
         }
 
@@ -99,7 +95,11 @@ namespace ThirdPartyLoginServer
         {
             byte[] bytes = new byte[message.Length * sizeof(char)];
             Buffer.BlockCopy(message.ToCharArray(), 0, bytes, 0, bytes.Length);
-            sender.Send(bytes);
+            foreach (var socket in Sockets)
+            {
+                socket.Send(bytes);
+            }
+            
             //sender.SendTo(bytes, LoginEndPoint);
             Console.WriteLine(message);
         }

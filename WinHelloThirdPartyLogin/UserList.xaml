@@ -16,7 +16,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Background="DodgerBlue" Height="50" Width="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <TextBlock Text="{Binding Username}" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{Binding Website}" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

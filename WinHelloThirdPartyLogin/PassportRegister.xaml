@@ -14,6 +14,12 @@
 
             <TextBlock x:Name="ErrorMessage" Text="" FontSize="20" Margin="4" Foreground="Red" TextAlignment="Center"/>
 
+            <TextBlock Text="Enter website name below" Margin="0,0,0,20"
+               TextWrapping="Wrap" Width="300"
+               TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+
+            <TextBox x:Name="WebsiteTextBox" Margin="4" Width="250"/>
+            
             <TextBlock Text="Enter your new username below" Margin="0,0,0,20"
                TextWrapping="Wrap" Width="300"
                TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>

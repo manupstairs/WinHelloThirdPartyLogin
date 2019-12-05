@@ -62,7 +62,7 @@ namespace WinHelloThirdPartyLogin
             var consentResult = await UserConsentVerifier.RequestVerificationAsync(_activeAccount.Username);
             if (consentResult == UserConsentVerificationResult.Verified)
             {
-                SocketClient.Instance.Send("Verified");
+                SocketClient.Instance.Send($"[{_activeAccount.Website}][{_activeAccount.Username}][{_activeAccount.Password}]");
                 //await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => { Frame.Navigate(typeof(Welcome), account); });
 
             }

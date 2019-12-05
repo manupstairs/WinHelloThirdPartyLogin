@@ -57,7 +57,7 @@ namespace WinHelloThirdPartyLogin
                 Account account = (Account)((ListView)sender).SelectedValue;
                 if (account != null)
                 {
-                    SocketClient.Instance.Send(account.Username);
+                    //SocketClient.Instance.Send(account.Username);
                     Frame.Navigate(typeof(Welcome),account);
                 }
                 else

@@ -34,7 +34,7 @@ namespace WinHelloThirdPartyLogin
             if (!string.IsNullOrEmpty(UsernameTextBox.Text))
             {
                 //Register a new account
-                _account = AccountHelper.AddAccount(UsernameTextBox.Text,PasswordTextBox.Password);
+                _account = AccountHelper.AddAccount(WebsiteTextBox.Text,UsernameTextBox.Text,PasswordTextBox.Password);
                 //Register new account with Microsoft Passport
                 await MicrosoftPassportHelper.CreatePassportKeyAsync(_account.Username);
                 //Navigate to the Welcome Screen. 

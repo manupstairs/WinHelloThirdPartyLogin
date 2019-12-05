@@ -79,10 +79,10 @@ namespace WinHelloThirdPartyLogin.Models
             return AccountList = (xmlizer.Deserialize(textreader)) as List<Account>;
         }
 
-        public static Account AddAccount(string username, string password)
+        public static Account AddAccount(string website, string username, string password)
         {
             // Create a new account with the username
-            Account account = new Account() { Username = username, Password= password };
+            Account account = new Account() { Website = website, Username = username, Password= password };
             // Add it to the local list of accounts
             AccountList.Add(account);
             // SaveAccountList and return the account
