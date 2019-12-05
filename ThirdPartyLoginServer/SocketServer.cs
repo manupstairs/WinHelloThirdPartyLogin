@@ -15,7 +15,7 @@ namespace ThirdPartyLoginServer
 
         private Socket ServerSocket { get; set; }
 
-        private EndPoint LoginEndPoint { get; set; }
+        //private EndPoint LoginEndPoint { get; set; }
 
         public SocketServer()
         {
@@ -27,7 +27,7 @@ namespace ThirdPartyLoginServer
             Console.WriteLine("Hello World!");
             ServerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ip = IPAddress.Any;
-            IPEndPoint point = new IPEndPoint(ip, 23333);
+            IPEndPoint point = new IPEndPoint(ip, 2333);
             //socket绑定监听地址
             ServerSocket.Bind(point);
             Console.WriteLine("Listen Success");
@@ -84,14 +84,14 @@ namespace ThirdPartyLoginServer
                 
                 ReceiveMessageEvent?.Invoke(this, str);
 
-                if (string.Compare(str, "loginclient", true) == 0)
-                {
-                    LoginEndPoint = send.RemoteEndPoint;
-                }
-                else if (LoginEndPoint != null && LoginEndPoint != send.RemoteEndPoint)
-                {
+                //if (string.Compare(str, "loginclient", true) == 0)
+                //{
+                //    LoginEndPoint = send.RemoteEndPoint;
+                //}
+                //else if (LoginEndPoint != null && LoginEndPoint != send.RemoteEndPoint)
+                //{
                     SendMessage(send, str);
-                }
+                //}
             }
         }
 
@@ -99,8 +99,8 @@ namespace ThirdPartyLoginServer
         {
             byte[] bytes = new byte[message.Length * sizeof(char)];
             Buffer.BlockCopy(message.ToCharArray(), 0, bytes, 0, bytes.Length);
-            //sender.Send(bytes);
-            sender.SendTo(bytes, LoginEndPoint);
+            sender.Send(bytes);
+            //sender.SendTo(bytes, LoginEndPoint);
             Console.WriteLine(message);
         }
     }
