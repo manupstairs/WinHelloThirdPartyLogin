@@ -18,9 +18,24 @@ namespace WinHelloThirdPartyLogin
         private Socket Client { get; set; }
         public event EventHandler<string> ReceiveMessageEvent;
 
-        public SocketClient()
+        private SocketClient()
         {
             
+        }
+
+        private static SocketClient instance;
+
+        public static SocketClient Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new SocketClient();
+                }
+
+                return instance;
+            }
         }
 
         public async void StartConnectAsync()
@@ -28,8 +43,8 @@ namespace WinHelloThirdPartyLogin
             Debug.WriteLine("Hello World! I'm client!");
             //创建实例
             Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            var ipAddress = "192.168.11.130";
-            var port = 2333;
+            var ipAddress = "192.168.11.128";
+            var port = 23333;
             IPAddress ip = IPAddress.Parse(ipAddress);
             IPEndPoint point = new IPEndPoint(ip, port);
             //进行连接

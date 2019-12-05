@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Credentials.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -53,6 +54,18 @@ namespace WinHelloThirdPartyLogin
 
            
             Frame.Navigate(typeof(UserList));
+        }
+
+        private async void ButtonWinHello_Click(object sender, RoutedEventArgs e)
+        {
+
+            var consentResult = await UserConsentVerifier.RequestVerificationAsync(_activeAccount.Username);
+            if (consentResult == UserConsentVerificationResult.Verified)
+            {
+                SocketClient.Instance.Send("Verified");
+                //await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => { Frame.Navigate(typeof(Welcome), account); });
+
+            }
         }
     }
 }

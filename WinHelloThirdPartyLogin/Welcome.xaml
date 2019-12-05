@@ -16,6 +16,9 @@
             <Button x:Name="BackToUserListButton" Content="Back to User List" Click="Button_Restart_Click"
             HorizontalAlignment="Center" Margin="0,20" Foreground="White" Background="DodgerBlue"/>
 
+            <Button x:Name="buttonWinHello" Content="Request Windows Hello Verification" Click="ButtonWinHello_Click"
+            HorizontalAlignment="Center" Margin="0,20" Foreground="White" Background="DodgerBlue"/>
+            
             <Button x:Name="ForgetButton" Content="Forget Me" Click="Button_Forget_User_Click"
             Foreground="White"
             Background="Gray"
