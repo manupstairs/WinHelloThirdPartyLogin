@@ -43,7 +43,7 @@ namespace WinHelloThirdPartyLogin
             Debug.WriteLine("Hello World! I'm client!");
             //创建实例
             Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            var ipAddress = "192.168.11.128";
+            var ipAddress = "127.0.0.1";
             var port = 2333;
             IPAddress ip = IPAddress.Parse(ipAddress);
             IPEndPoint point = new IPEndPoint(ip, port);
