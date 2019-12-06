@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinHelloThirdPartyLogin", "WinHelloThirdPartyLogin\WinHelloThirdPartyLogin.csproj", "{01F9D6BA-59BC-496A-A891-3BE42D2D226E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdPartyLoginServer", "..\ThirdPartyLoginServer\ThirdPartyLoginServer.csproj", "{556BEAB3-83BF-48F7-8D2B-CF7F811705E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdPartyLoginServer", "ThirdPartyLoginServer\ThirdPartyLoginServer.csproj", "{556BEAB3-83BF-48F7-8D2B-CF7F811705E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
